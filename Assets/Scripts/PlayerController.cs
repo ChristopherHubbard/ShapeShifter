@@ -54,12 +54,6 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
-        /*
-        else if(collision.gameObject.tag == "Floor" && !collCheck)
-        {
-            rigidB.velocity = new Vector2(0, rigidB.velocity.y);
-        }
-        */
     }
     private bool IsGrounded()
     {
