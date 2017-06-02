@@ -6,39 +6,42 @@ public class PlayerController : MonoBehaviour
 {
     //Public variables to manipulate in Unity
     public float speed;
-    public int jumpVelocity;
-    public bool collCheck = false;
+    public int jump;
 
     //Private variables for movement
     private Rigidbody2D rigidB;
-    private bool isJumping = false;
+    public float distToGround;
+    public bool isJumping;
     
     //Called when the object is initialized
     private void Start()
     {
         rigidB = GetComponent<Rigidbody2D>();
+        distToGround = GetComponent<Collider2D>().bounds.extents.y;
     }
 
     //Called in a fixed interval -- best used when dealing with Physics
     private void Update()
     {
-        //Get the input for the horizontal movement
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-        //If the space bar is pushed and the Shape Shifter isn't already jumping
-        if (Input.GetKeyDown("space") && !isJumping)
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
-            //Set isJumping to true and set jump to the jumpHeight 
-            isJumping = true;
-            rigidB.velocity = new Vector2(rigidB.velocity.x, jumpVelocity);
+            /*
+            //Update isJumping
+            isJumping = IsJumping();
+            */
+            //rigidB.velocity = new Vector2(rigidB.velocity.x, jumpVelocity);
+            rigidB.AddForce(new Vector2(0, jump * speed),ForceMode2D.Impulse);
         }
-        //Create a new Vector2 with the given force directions -- add the force to the rigid body
-        //Vector2 movement = new Vector2(moveHorizontal, 0);
-        //rigidB.AddForce(movement * speed);
-        rigidB.velocity = new Vector2(moveHorizontal * speed, rigidB.velocity.y);
 
     }
 
+    //Called in a fixed interval -- best used when dealing with Physics
+    private void FixedUpdate()
+    {
+        rigidB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidB.velocity.y);
+    }
+
+    
     /// <summary>
     /// On collision with a 2D object
     /// Primarily used to check for collision with a platform
@@ -46,22 +49,31 @@ public class PlayerController : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //Collision check to see if the player is on the top of the collision object
-        //collCheck = collision.gameObject.transform.position.y + (collision.gameObject.transform.lossyScale.y / 2) <= transform.position.y - (transform.lossyScale.y / 2);
-        collCheck = IsGrounded();
-        //If the player collided with the floor
-        if(collision.gameObject.tag == "Floor" && collCheck)
-        {
-            isJumping = false;
-        }
+        isJumping = IsJumping();
     }
-    private bool IsGrounded()
+    
+
+    private bool IsJumping()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<Collider2D>().bounds.extents.y + 0.1f);
+        float y = transform.position.y - distToGround;
+        RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, y), Vector2.down, distToGround + 0.1f);
+        //Debug.Log(r.collider.name);
+        foreach(RaycastHit2D ray in rays)
+        {
+            Debug.Log(ray.collider.name);
+            if (ray.collider != null && ray.collider.tag != "Player")
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isJumping = true;
+        isJumping = IsJumping();
     }
+    
+    
 }
