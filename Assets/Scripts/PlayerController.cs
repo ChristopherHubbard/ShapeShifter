@@ -25,10 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
-            /*
-            //Update isJumping
-            isJumping = IsJumping();
-            */
             //rigidB.velocity = new Vector2(rigidB.velocity.x, jumpVelocity);
             rigidB.AddForce(new Vector2(0, jump * speed),ForceMode2D.Impulse);
         }
