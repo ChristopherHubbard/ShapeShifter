@@ -5,13 +5,36 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Public variables to manipulate in Unity
-    public float speed;
-    public int jump;
+    private float jumpForce = 100;
+    private float moveSpeed = 40;
 
-    //Private variables for movement
+    //Private variables for movement and measurment
     private Rigidbody2D rigidB;
-    public float distToGround;
-    public bool isJumping;
+    private float distToGround;
+
+    /// <summary>
+    /// Property to tell if the Player is jumping
+    /// Uses RaycastAll to detect all collider objects
+    /// below the Player and then determines whether jumping is
+    /// allowed.
+    /// </summary>
+    public bool IsJumping
+    {
+        get
+        {
+            float y = transform.position.y - distToGround;
+            RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, y), Vector2.down, distToGround + 0.1f);
+            foreach (RaycastHit2D ray in rays)
+            {
+                Debug.Log(ray.collider.name);
+                if (ray.collider != null && ray.collider.tag != "Player")
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
     
     //Called when the object is initialized
     private void Start()
@@ -19,57 +42,18 @@ public class PlayerController : MonoBehaviour
         rigidB = GetComponent<Rigidbody2D>();
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
     }
-
-    //Called in a fixed interval -- best used when dealing with Physics
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump") && !isJumping)
-        {
-            //rigidB.velocity = new Vector2(rigidB.velocity.x, jumpVelocity);
-            rigidB.AddForce(new Vector2(0, jump * speed),ForceMode2D.Impulse);
-        }
-
-    }
-
     //Called in a fixed interval -- best used when dealing with Physics
     private void FixedUpdate()
     {
-        rigidB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidB.velocity.y);
-    }
+        rigidB.velocity = new Vector2(0, rigidB.velocity.y);
+       
+        rigidB.AddForce(new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0), ForceMode2D.Impulse);
 
-    
-    /// <summary>
-    /// On collision with a 2D object
-    /// Primarily used to check for collision with a platform
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        isJumping = IsJumping();
-    }
-    
-
-    private bool IsJumping()
-    {
-        float y = transform.position.y - distToGround;
-        RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, y), Vector2.down, distToGround + 0.1f);
-        //Debug.Log(r.collider.name);
-        foreach(RaycastHit2D ray in rays)
+        if (Input.GetButtonDown("Jump") && !IsJumping)
         {
-            Debug.Log(ray.collider.name);
-            if (ray.collider != null && ray.collider.tag != "Player")
-            {
-                return false;
-            }
+            rigidB.velocity = new Vector2(rigidB.velocity.x, 0);
+            rigidB.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
-        return true;
     }
-
-    
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isJumping = IsJumping();
-    }
-    
     
 }
