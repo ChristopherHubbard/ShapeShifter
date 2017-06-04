@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RespawnController : MonoBehaviour
 {
-    PlayerController myPlayer;
-    public float worldBoundary;
+    private const double worldBoundary = -10;
+    private PlayerController myPlayer;
 
 	// Use this for initialization
 	void Start ()

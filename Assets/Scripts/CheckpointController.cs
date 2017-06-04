@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckpointController : MonoBehaviour
 {
-    public bool Triggered { get; set; }
+    private bool Triggered { get; set; }
 
     private void Start()
     {
@@ -18,16 +18,13 @@ public class CheckpointController : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!Triggered)
+        if (!Triggered && collision.tag == "Player")
         {
-            if (collision.tag == "Player")
-            {
-                PlayerController myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
-                myPlayer.CurrentCheckpoint = this.GetComponent<Collider2D>();
-                Triggered = true;
+            PlayerController myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
+            myPlayer.CurrentCheckpoint = this.GetComponent<Collider2D>();
+            Triggered = true;
 
-                Debug.Log("The checkpoint was hit!!");
-            }
+            Debug.Log("The checkpoint was hit!!");
         }
     }
 }

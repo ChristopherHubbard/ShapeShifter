@@ -9,8 +9,9 @@ public class PlayerController : MonoBehaviour
     private const float moveSpeed = 40;
 
     //Private variables for movement and measurment
-    public Rigidbody2D RigidB { get; set;}
     private float distToGround;
+
+    public Rigidbody2D RigidB { get; set; }
 
     /// <summary>
     /// CurrentCheckpoint collider2D property
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     /// Player has hit. Currently initialized to the player's starting
     /// location at the beginning of the game.
     /// </summary>
-    public Collider2D CurrentCheckpoint { get; set;}
+    public Collider2D CurrentCheckpoint { get; set; }
 
     /// <summary>
     /// Property to tell if the Player is jumping
@@ -33,14 +34,14 @@ public class PlayerController : MonoBehaviour
             //Find the bottom of the Player
             float ypos = transform.position.y - distToGround;
             //RaycastAll to find all colliders below the Player (sometimes including the player) and create an array
-            RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, ypos), Vector2.down, distToGround + 0.1f);
+            RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, ypos), Vector2.down, distToGround);// + 0.1f);
             //For all of the rays that were collided with
             foreach (RaycastHit2D ray in rays)
             {
                 //Log each ray's collider for debugging
                 Debug.Log(ray.collider.name);
                 //If the ray collided with something and it wasn't the Player -- not jumping
-                if (ray.collider != null && ray.collider.tag != "Player")
+                if (ray.collider != null && ray.collider.tag != "Player" && ray.collider.tag != "Respawn")
                 {
                     return false;
                 }
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         RigidB = GetComponent<Rigidbody2D>();
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
-        CurrentCheckpoint = GetComponent<Collider2D>();
+        Debug.Log(GetComponent<Collider2D>());
     }
 
     /// <summary>
