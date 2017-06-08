@@ -23,7 +23,6 @@ public class ShapeShifter : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
     {
-        Debug.Log(CurrentSprite);
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             CurrentIndex++;
