@@ -33,13 +33,20 @@ public class PlayerController : MonoBehaviour
         {
             //Find the bottom of the Player
             float ypos = transform.position.y - distToGround;
+            Vector2 groundCheck = new Vector2(transform.position.x, ypos);
+
+            //Ray for debugging
+            Ray debugRay = new Ray(new Vector3(groundCheck.x, groundCheck.y, 0), Vector3.down);
+
             //RaycastAll to find all colliders below the Player (sometimes including the player) and create an array
-            RaycastHit2D[] rays = Physics2D.RaycastAll(new Vector2(transform.position.x, ypos), Vector2.down, distToGround);// + 0.1f);
+            RaycastHit2D[] rays = Physics2D.RaycastAll(groundCheck, Vector2.down, distToGround+ 0.1f);
             //For all of the rays that were collided with
             foreach (RaycastHit2D ray in rays)
             {
-                //Log each ray's collider for debugging
+                //Log each ray's collider for debugging and draw the ray
                 Debug.Log(ray.collider.name);
+                Debug.DrawRay(debugRay.origin, debugRay.direction * (distToGround + 0.1f));
+
                 //If the ray collided with something and it wasn't the Player -- not jumping
                 if (ray.collider != null && ray.collider.tag != "Player" && ray.collider.tag != "Respawn")
                 {

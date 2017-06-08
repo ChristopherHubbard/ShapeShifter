@@ -21,7 +21,7 @@ public class CheckpointController : MonoBehaviour
         if (!Triggered && collision.tag == "Player")
         {
             PlayerController myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
-            myPlayer.CurrentCheckpoint = this.GetComponent<Collider2D>();
+            myPlayer.CurrentCheckpoint = GetComponent<Collider2D>();
             Triggered = true;
 
             Debug.Log("The checkpoint was hit!!");
