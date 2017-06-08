@@ -10,14 +10,20 @@ public class ShapeShifter : MonoBehaviour
     private PlayerController myPlayer;
 
     private int CurrentIndex { get; set; }
+    private SpriteRenderer spriteRenderer;
     private Sprite CurrentSprite { get; set; }
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
-        CurrentSprite = myPlayer.GetComponent<SpriteRenderer>().sprite;
+        spriteRenderer = myPlayer.GetComponent<SpriteRenderer>();
+
+        CurrentSprite = spriteRenderer.sprite;
         CurrentIndex = Array.IndexOf(spriteArray, CurrentSprite);
+
+        AdjustShape();
+        ChangeCollider();
     }
 	
 	// Update is called once per frame
@@ -30,8 +36,10 @@ public class ShapeShifter : MonoBehaviour
             {
                 CurrentIndex = 0;
             }
+
             CurrentSprite = spriteArray[CurrentIndex];
-            myPlayer.GetComponent<SpriteRenderer>().sprite = CurrentSprite;
+            spriteRenderer.sprite = CurrentSprite;
+            AdjustShape();
             ChangeCollider();
         }
 		
@@ -48,6 +56,18 @@ public class ShapeShifter : MonoBehaviour
         else
         {
             collider.radius = 0.5f;
+        }
+    }
+
+    private void AdjustShape()
+    {
+        if(CurrentSprite.name == "Square")
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
         }
     }
 }
