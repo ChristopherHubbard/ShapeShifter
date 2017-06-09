@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Constant variables -- may want to encapsulate later
-    private const float jumpForce = 100;
-    private const float moveSpeed = 40;
-
     //Private variables for movement and measurment
     private float distToGround;
+
+    public float JumpForce { get; set; }
+
+    public float MoveSpeed { get; set; }
 
     public Rigidbody2D RigidB { get; set; }
 
@@ -34,9 +34,6 @@ public class PlayerController : MonoBehaviour
             //Find the bottom of the Player
             float ypos = transform.position.y - distToGround;
             Vector2 groundCheck = new Vector2(transform.position.x, ypos);
-
-            //Ray for debugging
-            Ray debugRay = new Ray(new Vector3(groundCheck.x, groundCheck.y, 0), Vector3.down);
 
             //RaycastAll to find all colliders below the Player (sometimes including the player) and create an array
             RaycastHit2D[] rays = Physics2D.RaycastAll(groundCheck, Vector2.down, distToGround + 0.2f);
@@ -68,6 +65,8 @@ public class PlayerController : MonoBehaviour
     {
         RigidB = GetComponent<Rigidbody2D>();
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
+        MoveSpeed = 40;
+        JumpForce = 100;
     }
 
     /// <summary>
@@ -85,7 +84,7 @@ public class PlayerController : MonoBehaviour
             //Zero out the Player's velocity in y in order to allow for more consistent jumping
             RigidB.velocity = new Vector2(RigidB.velocity.x, 0);
             //Add an instantaneous force in the y direction of magnitude jumpForce
-            RigidB.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            RigidB.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -99,7 +98,7 @@ public class PlayerController : MonoBehaviour
         //Zero out the Player's velocity in x in order to allow for more precise movements
         RigidB.velocity = new Vector2(0, RigidB.velocity.y);
         //Add an instantaneous (ForceMode2D.Impulse) to the Player for horizontal movements
-        RigidB.AddForce(new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0), ForceMode2D.Impulse);
+        RigidB.AddForce(new Vector2(Input.GetAxis("Horizontal") * MoveSpeed, 0), ForceMode2D.Impulse);
     }
 
 }

@@ -11,7 +11,7 @@ public class ShapeShifter : MonoBehaviour
 
     private int CurrentIndex { get; set; }
     private SpriteRenderer spriteRenderer;
-    private Sprite CurrentSprite { get; set; }
+    public Sprite CurrentSprite { get; set; }
 
 	// Use this for initialization
 	private void Start ()
