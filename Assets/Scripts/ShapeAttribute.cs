@@ -71,17 +71,19 @@ public class ShapeAttribute : MonoBehaviour
         if(myShape.IsHeavy)
         {
             rigidB.mass *= 5;
+            myPlayer.JumpForce = 0;
         }
         else
         {
             rigidB.mass = 5;
+            myPlayer.JumpForce = 100;
         }
 
         if(myShape.CanHighJump)
         {
             myPlayer.JumpForce = 150; 
         }
-        else
+        else if(!myShape.IsHeavy)
         {
             myPlayer.JumpForce = 100;
         }
