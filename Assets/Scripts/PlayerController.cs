@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
     /// <summary>
     /// Called at a fixed interval, regardless of framerate.
     /// Used to update the horizontal movement physics of the 
@@ -100,5 +101,6 @@ public class PlayerController : MonoBehaviour
         //Add an instantaneous (ForceMode2D.Impulse) to the Player for horizontal movements
         RigidB.AddForce(new Vector2(Input.GetAxis("Horizontal") * MoveSpeed, 0), ForceMode2D.Impulse);
     }
+    
 
 }

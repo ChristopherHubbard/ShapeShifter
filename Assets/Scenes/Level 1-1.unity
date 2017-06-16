@@ -278,7 +278,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4448604752995966, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
@@ -580,6 +580,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1888298469}
+    - target: {fileID: 23150254647388258, guid: 7f079e88e45e2b54b89e8525ac4a38ad,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f079e88e45e2b54b89e8525ac4a38ad, type: 2}
   m_IsPrefabParent: 0
@@ -740,8 +745,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1415980353}
   - {fileID: 576866201}
+  - {fileID: 1415980353}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1306,7 +1311,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4448604752995966, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4448604752995966, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_LocalScale.x
@@ -1318,7 +1323,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1686500947887582, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_Name
-      value: Checkpoint (1)
+      value: Start
       objectReference: {fileID: 0}
     - target: {fileID: 61979074927243578, guid: 7ddfeb2de9cca9d408be475c2b12d6b7,
         type: 2}
@@ -1340,6 +1345,9 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.06541307
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95213759664456292, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
+    - {fileID: 114801945961816016, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
+    - {fileID: 212508676119030190, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
   m_IsPrefabParent: 0

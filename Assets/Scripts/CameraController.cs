@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
         float newY = transform.position.y;
+
         if(CanMoveY)
         {
             newY = myPlayer.transform.position.y + offset.y;
