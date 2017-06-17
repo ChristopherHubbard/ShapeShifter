@@ -13,15 +13,15 @@ public class ShapeAttribute : MonoBehaviour
 
     private bool sprinting;
 
-    private Shape myShape;
-
     private Circle circle = new Circle();
     private Square square = new Square();
     private Triangle triangle = new Triangle();
     private Hexagon hexagon = new Hexagon();
 
-	// Use this for initialization
-	private void Start ()
+    public Shape MyShape { get; set; }
+
+    // Use this for initialization
+    private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         spriteRenderer = myPlayer.GetComponent<SpriteRenderer>();
@@ -51,16 +51,16 @@ public class ShapeAttribute : MonoBehaviour
         switch(currentSprite.name)
         {
             case "Square":
-                myShape = square;
+                MyShape = square;
                 break;
             case "Circle":
-                myShape = circle;
+                MyShape = circle;
                 break;
             case "Triangle":
-                myShape = triangle;
+                MyShape = triangle;
                 break;
             case "Hexagon":
-                myShape = hexagon;
+                MyShape = hexagon;
                 break;
         }
 
@@ -68,7 +68,7 @@ public class ShapeAttribute : MonoBehaviour
 
     private void SetAttributes()
     {
-        if(myShape.IsHeavy)
+        if(MyShape.IsHeavy)
         {
             rigidB.mass *= 5;
             myPlayer.JumpForce = 0;
@@ -79,11 +79,11 @@ public class ShapeAttribute : MonoBehaviour
             myPlayer.JumpForce = 100;
         }
 
-        if(myShape.CanHighJump)
+        if(MyShape.CanHighJump)
         {
-            myPlayer.JumpForce = 150; 
+            myPlayer.JumpForce = 125; 
         }
-        else if(!myShape.IsHeavy)
+        else if(!MyShape.IsHeavy)
         {
             myPlayer.JumpForce = 100;
         }
@@ -91,12 +91,18 @@ public class ShapeAttribute : MonoBehaviour
 
     private void UseAttributes()
     {
-        if(myShape.CanGravChange && Input.GetKeyDown(KeyCode.Space))
+        if(MyShape.CanGravChange && Input.GetKeyDown(KeyCode.Space) && !myPlayer.IsJumping)
         {
             rigidB.gravityScale *= -1;
+            myPlayer.Direction *= -1;
+        }
+        else if(!MyShape.CanGravChange)
+        {
+            rigidB.gravityScale = 1;
+            myPlayer.Direction = Vector2.down;
         }
 
-        if(myShape.CanSprint && Input.GetKeyDown(KeyCode.F) && !sprinting)
+        if(MyShape.CanSprint && Input.GetKeyDown(KeyCode.F) && !sprinting)
         {
             sprinting = true;
             myPlayer.MoveSpeed = 80;

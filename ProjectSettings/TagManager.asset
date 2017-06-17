@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - Floor
   - Background
+  - PlayerComponent
   layers:
   - Default
   - TransparentFX

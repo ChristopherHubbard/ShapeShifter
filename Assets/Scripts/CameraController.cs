@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     {
         myPlayer = GameObject.Find("Player");
         offset = transform.position - myPlayer.transform.position;
-        CanMoveY = false;
+        CanMoveY = true;
     }
 
     // Update is called once per frame

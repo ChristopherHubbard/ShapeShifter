@@ -8,14 +8,14 @@ public class RespawnController : MonoBehaviour
     private const double worldBoundary = -10;
     private PlayerController myPlayer;
     private PlayerColorAbilities myAbility;
-    private CheckpointController myCheckpoint;
+    private GameObject[] myCheckpoints;
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         myAbility = myPlayer.GetComponent<PlayerColorAbilities>();
-        myCheckpoint = GameObject.FindGameObjectWithTag("Respawn").GetComponent<CheckpointController>();
+        myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
     }
 	
 	// Update is called once per frame
@@ -33,16 +33,25 @@ public class RespawnController : MonoBehaviour
 
     private void ResetBackgrounds()
     {
-        for(int i = 0; i < myCheckpoint.Backgrounds.Count; i++)
+        foreach (GameObject myCheckpoint in myCheckpoints)
         {
-            myCheckpoint.Backgrounds[i].transform.position = myCheckpoint.BackgroundPos[i];
+            CheckpointController checkpoint = myCheckpoint.GetComponent<CheckpointController>();
+            Collider2D checkpointCollider = myCheckpoint.GetComponent<Collider2D>();
+
+            if (checkpointCollider == myPlayer.CurrentCheckpoint)
+            {
+                for (int i = 0; i < checkpoint.Backgrounds.Count; i++)
+                {
+                    checkpoint.Backgrounds[i].transform.position = checkpoint.BackgroundPos[i];
+                }
+            }
         }
     }
 
     private bool IsOutsideBounds()
     {
         //If the player is outside the bounds of the world
-        if(myPlayer.transform.position.y <= worldBoundary)
+        if(myPlayer.transform.position.y <= worldBoundary || myPlayer.transform.position.y >= 250)
         {
             return true;
         }

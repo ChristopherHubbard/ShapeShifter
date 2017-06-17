@@ -16,7 +16,7 @@ public class ColorChanger : MonoBehaviour
     {
         GameObject collider = collision.gameObject;
 
-        if(collider.name == "Player")
+        if(collider.tag == "Player")
         {
             collider.GetComponent<SpriteRenderer>().material = material;
             gameObject.SetActive(false);

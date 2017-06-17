@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     //Private variables for movement and measurment
     private float distToGround;
 
+    public Vector2 Direction { get; set; }
+
     public float JumpForce { get; set; }
 
     public float MoveSpeed { get; set; }
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
             Vector2 groundCheck = new Vector2(transform.position.x, ypos);
 
             //RaycastAll to find all colliders below the Player (sometimes including the player) and create an array
-            RaycastHit2D[] rays = Physics2D.RaycastAll(groundCheck, Vector2.down, distToGround + 0.2f);
+            RaycastHit2D[] rays = Physics2D.RaycastAll(groundCheck, Direction, distToGround + 0.2f);
             //For all of the rays that were collided with
             foreach (RaycastHit2D ray in rays)
             {
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
         distToGround = GetComponent<Collider2D>().bounds.extents.y;
         MoveSpeed = 40;
         JumpForce = 100;
+        Direction = Vector2.down;
     }
 
     /// <summary>
