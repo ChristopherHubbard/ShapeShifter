@@ -7,14 +7,12 @@ public class BackgroundController : MonoBehaviour
     public GameObject otherBackground;
 
     private Rigidbody2D playerRigidBody;
-    private Collider2D myCollider;
     private Vector3 moveDistance;
 
 	// Use this for initialization
 	void Start ()
     {
         playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-        myCollider = GetComponent<Collider2D>();
 
         moveDistance = new Vector3(transform.localScale.x, 0, 0);
         Debug.Log(moveDistance);

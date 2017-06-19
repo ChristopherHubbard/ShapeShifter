@@ -107,7 +107,7 @@ public class ShapeAttribute : MonoBehaviour
             sprinting = true;
             myPlayer.MoveSpeed = 80;
         }
-        else if(Input.GetKeyDown(KeyCode.F) && sprinting)
+        else if(!MyShape.CanSprint || Input.GetKeyDown(KeyCode.F) && sprinting)
         {
             sprinting = false;
             myPlayer.MoveSpeed = 40;

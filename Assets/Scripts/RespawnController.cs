@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class RespawnController : MonoBehaviour
 {
-    private const double worldBoundary = -10;
+    private const double worldBoundary = -20;
     private PlayerController myPlayer;
-    private PlayerColorAbilities myAbility;
+    //private PlayerColorAbilities myAbility;
     private GameObject[] myCheckpoints;
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
-        myAbility = myPlayer.GetComponent<PlayerColorAbilities>();
+        //myAbility = myPlayer.GetComponent<PlayerColorAbilities>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
     }
 	
