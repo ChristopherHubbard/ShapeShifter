@@ -315,7 +315,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -29.81
+      value: -24.47
       objectReference: {fileID: 0}
     - target: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39, type: 2}
       propertyPath: m_LocalPosition.y
@@ -600,11 +600,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4516998643829310, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.97
+      value: -25.83
       objectReference: {fileID: 0}
     - target: {fileID: 4516998643829310, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4516998643829310, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
       propertyPath: m_LocalPosition.z
@@ -646,11 +646,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.26
+      value: -13.07
       objectReference: {fileID: 0}
     - target: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.72
+      value: 11.65
       objectReference: {fileID: 0}
     - target: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39, type: 2}
       propertyPath: m_LocalPosition.z
@@ -875,6 +875,11 @@ Prefab:
     - target: {fileID: 1203800778340686, guid: 87328f9ed6eb8354fbd44d15571f5dbb, type: 2}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 20576471705838598, guid: 87328f9ed6eb8354fbd44d15571f5dbb,
+        type: 2}
+      propertyPath: orthographic size
+      value: 19.469307
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87328f9ed6eb8354fbd44d15571f5dbb, type: 2}
@@ -1106,7 +1111,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448604752995966, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.88
+      value: -25.4
       objectReference: {fileID: 0}
     - target: {fileID: 4448604752995966, guid: 7ddfeb2de9cca9d408be475c2b12d6b7, type: 2}
       propertyPath: m_LocalPosition.y
