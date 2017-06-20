@@ -40,9 +40,13 @@ public class RespawnController : MonoBehaviour
 
             if (checkpointCollider == myPlayer.CurrentCheckpoint)
             {
-                for (int i = 0; i < checkpoint.Backgrounds.Count; i++)
+                if (checkpoint.NullCheck())
                 {
-                    checkpoint.Backgrounds[i].transform.position = checkpoint.BackgroundPos[i];
+                    for (int i = 0; i < checkpoint.Backgrounds.Count; i++)
+                    {
+                        checkpoint.Backgrounds[i].transform.position = checkpoint.BackgroundPos[i];
+                    }
+
                 }
             }
         }

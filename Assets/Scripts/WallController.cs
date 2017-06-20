@@ -1,32 +1,61 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    public GameObject myTrigger;
+    public GameObject[] myTriggers;
 
-    private PushButtonController myButton;
+    private Dictionary<PushButtonController, bool> myButtons = new Dictionary<PushButtonController, bool>();
+    public Dictionary<PushButtonController, bool> MyButtons
+    {
+        get
+        {
+            return myButtons;
+        }
+    }
+
     private bool open;
 
-    private const float interval = 0.001f;
-    private Vector3 desiredLocation;
+    private Vector3 originalLocation;
+    private Vector3 openLocation;
 
 	// Use this for initialization
 	private void Start ()
     {
         open = false;
-        myButton = myTrigger.GetComponent<PushButtonController>();
-        desiredLocation = new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z);
+        SetButtons();
+        originalLocation = transform.position;
+        openLocation = transform.position + new Vector3(0, 5f, 0);
 	}
-	
-	// Update is called once per frame
-	private void Update ()
+
+    private void SetButtons()
     {
-        if(myButton.Triggered && !open)
+        foreach(GameObject myTrigger in myTriggers)
         {
-            open = true;
-            transform.position = desiredLocation;
+            PushButtonController button = myTrigger.GetComponent<PushButtonController>();
+            myButtons.Add(button, button.Triggered);
+        }
+    }
+
+    // Update is called once per frame
+    private void Update ()
+    {
+        if (myButtons.ContainsValue(true) && !open)
+        { 
+            SetLocation(true, openLocation);
+        }
+
+        else if (!myButtons.ContainsValue(true) && open)
+        {
+            SetLocation(false, originalLocation);
         }
 	}
+
+    private void SetLocation(bool isOpen, Vector3 setLocation)
+    {
+        open = isOpen;
+        transform.position = setLocation;
+    }
 }

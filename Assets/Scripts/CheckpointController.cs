@@ -36,9 +36,12 @@ public class CheckpointController : MonoBehaviour
             GameObject.Find("Background2")
          };
 
-        foreach (GameObject background in backgrounds)
+        if (NullCheck())
         {
-            backgroundPos.Add(background.transform.position);
+            foreach (GameObject background in backgrounds)
+            {
+                backgroundPos.Add(background.transform.position);
+            }
         }
     }
 
@@ -63,9 +66,17 @@ public class CheckpointController : MonoBehaviour
 
     private void SetBackgroundInfo()
     {
-        for(int i = 0; i < backgrounds.Count; i++)
+        if (NullCheck())
         {
-            backgroundPos[i] = backgrounds[i].transform.position;
+            for (int i = 0; i < backgrounds.Count; i++)
+            {
+                backgroundPos[i] = backgrounds[i].transform.position;
+            }
         }
+    }
+
+    public bool NullCheck()
+    {
+        return backgrounds[0] != null && backgrounds[1] != null;
     }
 }
