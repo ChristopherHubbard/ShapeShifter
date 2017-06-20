@@ -14,7 +14,7 @@ public class BackgroundController : MonoBehaviour
     {
         playerRigidBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 
-        moveDistance = new Vector3(transform.localScale.x, 0, 0);
+        moveDistance = new Vector3(GetComponent<SpriteRenderer>().bounds.extents.x * 2, 0, 0);
         Debug.Log(moveDistance);
 	}
 
