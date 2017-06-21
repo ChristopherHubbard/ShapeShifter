@@ -6,7 +6,6 @@ using UnityEngine;
 public class WallController : MonoBehaviour
 {
     public GameObject[] myTriggers;
-    public Vector3 moveDirection;
 
     private List<SpriteRenderer> brickRenderer = new List<SpriteRenderer>();
     private Dictionary<PushButtonController, bool> myButtons = new Dictionary<PushButtonController, bool>();
