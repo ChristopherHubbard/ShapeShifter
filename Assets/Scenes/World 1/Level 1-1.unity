@@ -673,11 +673,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42e4b3fe7eb0a12458c9fd15391b2460, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &133455146 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1324630938566784, guid: 5b480b22f3ed06c4c94f5d31201c984e,
-    type: 2}
-  m_PrefabInternal: {fileID: 891273900}
 --- !u!4 &133455147 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4064740735578004, guid: 5b480b22f3ed06c4c94f5d31201c984e,
@@ -1271,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTrigger: {fileID: 1586064790}
+  myTriggers: []
 --- !u!1001 &377625777
 Prefab:
   m_ObjectHideFlags: 0
@@ -1789,11 +1784,6 @@ SpriteRenderer:
   m_Size: {x: 3, y: 1.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
---- !u!1 &477870279 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1324630938566784, guid: 5b480b22f3ed06c4c94f5d31201c984e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1092521854}
 --- !u!4 &477870280 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4064740735578004, guid: 5b480b22f3ed06c4c94f5d31201c984e,
@@ -1980,7 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTrigger: {fileID: 477870279}
+  myTriggers: []
 --- !u!61 &510322384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2139,7 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTrigger: {fileID: 1988496825}
+  myTriggers: []
 --- !u!61 &603400662
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5593,11 +5583,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4295962165713494, guid: 87328f9ed6eb8354fbd44d15571f5dbb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.4
       objectReference: {fileID: 0}
     - target: {fileID: 4295962165713494, guid: 87328f9ed6eb8354fbd44d15571f5dbb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.16000003
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4295962165713494, guid: 87328f9ed6eb8354fbd44d15571f5dbb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5990,7 +5980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTrigger: {fileID: 133455146}
+  myTriggers: []
 --- !u!61 &1900177814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6339,11 +6329,6 @@ SpriteRenderer:
   m_Size: {x: 0.7, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
---- !u!1 &1988496825 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1324630938566784, guid: 5b480b22f3ed06c4c94f5d31201c984e,
-    type: 2}
-  m_PrefabInternal: {fileID: 799929037}
 --- !u!4 &1988496826 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4064740735578004, guid: 5b480b22f3ed06c4c94f5d31201c984e,

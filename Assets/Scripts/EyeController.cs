@@ -19,6 +19,8 @@ public class EyeController : MonoBehaviour
     //Quaternion for the rotation of the eyes about themselves
     private Quaternion rotation;
 
+    private Rigidbody2D playerRigidBody;
+
     /// <summary>
     /// Start is called at initialization and is used
     /// to set the private fields on the eyes
@@ -38,6 +40,8 @@ public class EyeController : MonoBehaviour
         offset = offsetNotFlipped;
         //Set the initial rotation
         rotation = transform.rotation;
+
+        playerRigidBody = player.GetComponent<Rigidbody2D>();
     }
 
     /// <summary>

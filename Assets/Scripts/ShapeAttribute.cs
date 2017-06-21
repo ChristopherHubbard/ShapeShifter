@@ -37,7 +37,7 @@ public class ShapeAttribute : MonoBehaviour
     // Update is called once per frame
     private void LateUpdate ()
     {
-		if(Input.GetKeyDown(KeyCode.LeftShift))
+		if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             currentSprite = spriteRenderer.sprite;
             FindAttributes();

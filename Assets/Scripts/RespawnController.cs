@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RespawnController : MonoBehaviour
 {
-    private const double worldBoundary = -20;
+    private const double worldBoundary = -100;
     private PlayerController myPlayer;
     //private PlayerColorAbilities myAbility;
     private GameObject[] myCheckpoints;

@@ -29,21 +29,36 @@ public class ShapeShifter : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            CurrentIndex++;
-            if(CurrentIndex > spriteArray.Length - 1)
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                CurrentIndex = 0;
+                CurrentIndex++;
             }
-
-            CurrentSprite = spriteArray[CurrentIndex];
-            spriteRenderer.sprite = CurrentSprite;
-            AdjustShape();
-            ChangeCollider();
+            else
+            {
+                CurrentIndex--;
+            }
+            ChangeShape();
         }
-		
 	}
+
+    private void ChangeShape()
+    {
+        if (CurrentIndex > spriteArray.Length - 1)
+        {
+            CurrentIndex = 0;
+        }
+        else if(CurrentIndex < 0)
+        {
+            CurrentIndex = spriteArray.Length - 1;
+        }
+
+        CurrentSprite = spriteArray[CurrentIndex];
+        spriteRenderer.sprite = CurrentSprite;
+        AdjustShape();
+        ChangeCollider();
+    }
 
     private void ChangeCollider()
     {
