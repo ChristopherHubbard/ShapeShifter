@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RespawnController : MonoBehaviour
 {
-    private const double worldBoundary = -100;
+    private const double worldBoundary = 250;
     private PlayerController myPlayer;
     //private PlayerColorAbilities myAbility;
     private GameObject[] myCheckpoints;
@@ -16,6 +16,7 @@ public class RespawnController : MonoBehaviour
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         //myAbility = myPlayer.GetComponent<PlayerColorAbilities>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
+
     }
 	
 	// Update is called once per frame
@@ -27,7 +28,7 @@ public class RespawnController : MonoBehaviour
             myPlayer.RigidB.velocity = new Vector2(0, 0);
             ResetBackgrounds();
 
-            myPlayer.transform.position = myPlayer.CurrentCheckpoint.transform.position;
+            myPlayer.transform.position = new Vector3(myPlayer.CurrentCheckpoint.transform.position.x, myPlayer.CurrentCheckpoint.transform.position.y, 0);
         }
 	}
 
@@ -55,7 +56,7 @@ public class RespawnController : MonoBehaviour
     private bool IsOutsideBounds()
     {
         //If the player is outside the bounds of the world
-        if(myPlayer.transform.position.y <= worldBoundary || myPlayer.transform.position.y >= 250)
+        if(myPlayer.transform.position.y <= -worldBoundary || myPlayer.transform.position.y >= worldBoundary)
         {
             return true;
         }

@@ -6,7 +6,9 @@ using UnityEngine;
 public class WallController : MonoBehaviour
 {
     public GameObject[] myTriggers;
+    public Vector3 moveDirection;
 
+    private List<SpriteRenderer> brickRenderer = new List<SpriteRenderer>();
     private Dictionary<PushButtonController, bool> myButtons = new Dictionary<PushButtonController, bool>();
     public Dictionary<PushButtonController, bool> MyButtons
     {
@@ -17,17 +19,16 @@ public class WallController : MonoBehaviour
     }
 
     private bool open;
-
-    private Vector3 originalLocation;
-    private Vector3 openLocation;
+    private Collider2D myCollider;
 
 	// Use this for initialization
 	private void Start ()
     {
         open = false;
         SetButtons();
-        originalLocation = transform.position;
-        openLocation = transform.position + new Vector3(0, 5f, 0);
+
+        brickRenderer.AddRange(GetComponentsInChildren<SpriteRenderer>());
+        myCollider = GetComponent<Collider2D>();
 	}
 
     private void SetButtons()
@@ -44,18 +45,23 @@ public class WallController : MonoBehaviour
     {
         if (myButtons.ContainsValue(true) && !open)
         { 
-            SetLocation(true, openLocation);
+            ButtonAction(true);
         }
 
         else if (!myButtons.ContainsValue(true) && open)
         {
-            SetLocation(false, originalLocation);
+            ButtonAction(false);
         }
 	}
 
-    private void SetLocation(bool isOpen, Vector3 setLocation)
+    private void ButtonAction(bool isOpen)
     {
         open = isOpen;
-        transform.position = setLocation;
+
+        myCollider.enabled = !isOpen;
+        foreach(SpriteRenderer brick in brickRenderer)
+        {
+            brick.enabled = !isOpen;
+        }
     }
 }
