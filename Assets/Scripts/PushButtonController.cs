@@ -9,10 +9,13 @@ public class PushButtonController : MonoBehaviour
 
     public GameObject[] controlling;
     public Sprite[] availableSprites;
+
     public bool isTimed;
+    public bool isOscillator;
 
     private List<WallController> wallController = new List<WallController>();
     private SpriteRenderer spriteRenderer;
+    private bool oscillating;
 
     public bool Triggered { get; set; }
 
@@ -23,6 +26,7 @@ public class PushButtonController : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         Triggered = false;
+        oscillating = false;
 	}
 
     private void SetWallControllers()
@@ -39,17 +43,22 @@ public class PushButtonController : MonoBehaviour
 
         if(collider.tag == "Player" && collider.GetComponent<ShapeAttribute>().MyShape.IsHeavy && !Triggered)
         {
-            Triggered = true;
-            UpdateTriggers(Triggered);
+            UpdateTriggers(true);
             spriteRenderer.sprite = availableSprites[1];
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+
         if(Triggered && isTimed)
         {
             StartCoroutine(ResetButtonTimed());
+        }
+
+        if(Triggered && isOscillator && !oscillating)
+        {
+            StartCoroutine(OscillateButton());
         }
     }
 
@@ -57,16 +66,35 @@ public class PushButtonController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(duration);
 
-        Triggered = false;
-        UpdateTriggers(Triggered);
+        EndCoroutines(true);
         spriteRenderer.sprite = availableSprites[0];
+    }
+
+    private IEnumerator OscillateButton()
+    {
+        oscillating = true;
+
+        while (oscillating)
+        {
+            yield return new WaitForSecondsRealtime(0.5f);
+            UpdateTriggers(!Triggered);
+        }
     }
 
     private void UpdateTriggers(bool value)
     {
+        Triggered = value;
+
         foreach(WallController wall in wallController)
         {
             wall.MyButtons[this] = value;
         }
+    }
+
+    private void EndCoroutines(bool value)
+    {
+        StopAllCoroutines();
+        oscillating = false;
+        UpdateTriggers(false);
     }
 }

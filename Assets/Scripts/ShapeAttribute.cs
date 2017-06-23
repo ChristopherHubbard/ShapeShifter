@@ -91,15 +91,29 @@ public class ShapeAttribute : MonoBehaviour
 
     private void UseAttributes()
     {
-        if(MyShape.CanGravChange && Input.GetKeyDown(KeyCode.Space) && !myPlayer.IsJumping)
+        if(MyShape.CanGravChange && Input.GetKeyDown(KeyCode.F) && !myPlayer.IsJumping)
         {
             rigidB.gravityScale *= -1;
             myPlayer.Direction *= -1;
+            myPlayer.JumpForce *= -1;
         }
         else if(!MyShape.CanGravChange)
         {
             rigidB.gravityScale = 1;
             myPlayer.Direction = Vector2.down;
+            
+            if(MyShape.CanHighJump)
+            {
+                myPlayer.JumpForce = 125;
+            }
+            else if(!MyShape.IsHeavy)
+            {
+                myPlayer.JumpForce = 100;
+            }
+            else
+            {
+                myPlayer.JumpForce = 0;
+            }
         }
 
         if(MyShape.CanSprint && Input.GetKeyDown(KeyCode.F) && !sprinting)

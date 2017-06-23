@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
         get
         {
             //Find the bottom of the Player
-            float ypos = transform.position.y - distToGround;
+            float ypos = transform.position.y - (distToGround * RigidB.gravityScale);
             Vector2 groundCheck = new Vector2(transform.position.x, ypos);
 
             //RaycastAll to find all colliders below the Player (sometimes including the player) and create an array
@@ -80,7 +82,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
-
         //If the player is trying to jump and isn't already jumping
         if (Input.GetKeyDown(KeyCode.Space) && !IsJumping)
         {
