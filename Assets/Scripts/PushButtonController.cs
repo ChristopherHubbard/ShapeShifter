@@ -66,7 +66,7 @@ public class PushButtonController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(duration);
 
-        EndCoroutines(true);
+        EndCoroutines();
         spriteRenderer.sprite = availableSprites[0];
     }
 
@@ -81,17 +81,31 @@ public class PushButtonController : MonoBehaviour
         }
     }
 
+    private IEnumerator Delay(WallController wall, bool value)
+    {
+        yield return new WaitForSecondsRealtime(wall.delayTime);
+        wall.MyButtons[this] = value;
+    }
+
     private void UpdateTriggers(bool value)
     {
         Triggered = value;
 
         foreach(WallController wall in wallController)
         {
-            wall.MyButtons[this] = value;
+            if(wall.isDelayed)
+            {
+                StartCoroutine(Delay(wall, value));
+            }
+            else
+            {
+                wall.MyButtons[this] = value;
+            }
+            //wall.MyButtons[this] = value;
         }
     }
 
-    private void EndCoroutines(bool value)
+    private void EndCoroutines()
     {
         StopAllCoroutines();
         oscillating = false;
