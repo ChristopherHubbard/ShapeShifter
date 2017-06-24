@@ -274,8 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1 &23130156
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,8 +455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1 &70557750 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1939663730482538, guid: 117455b146843eb439cecb836685f1f1,
@@ -495,8 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &77137116
 Prefab:
   m_ObjectHideFlags: 0
@@ -950,8 +950,6 @@ Transform:
   - {fileID: 1338547803}
   - {fileID: 537618491}
   - {fileID: 1804251289}
-  - {fileID: 1651127151}
-  - {fileID: 1662959644}
   - {fileID: 996065092}
   - {fileID: 630121496}
   m_Father: {fileID: 1635018123}
@@ -1510,6 +1508,16 @@ Prefab:
       propertyPath: myTriggers.Array.data[0]
       value: 
       objectReference: {fileID: 1614707543}
+    - target: {fileID: 114426184874273174, guid: de6b621e2ff40b845be553cd701b25f5,
+        type: 2}
+      propertyPath: isDelayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114426184874273174, guid: de6b621e2ff40b845be553cd701b25f5,
+        type: 2}
+      propertyPath: delayTime
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de6b621e2ff40b845be553cd701b25f5, type: 2}
   m_IsPrefabParent: 0
@@ -2107,12 +2115,12 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 586885078}
+    m_TransformParent: {fileID: 2104062091}
     m_Modifications:
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.size
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4741927483156566, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2144,7 +2152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4741927483156566, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
@@ -2203,7 +2211,7 @@ Prefab:
       objectReference: {fileID: 859504676}
     - target: {fileID: 1010298124033206, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_Name
-      value: Timer Oscillator Button (6)
+      value: Untimed Oscillator Button (1)
       objectReference: {fileID: 0}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
@@ -2259,17 +2267,40 @@ Prefab:
         type: 2}
       propertyPath: controlling.Array.data[21]
       value: 
-      objectReference: {fileID: 1662959643}
+      objectReference: {fileID: 996065091}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.data[22]
       value: 
-      objectReference: {fileID: 996065091}
+      objectReference: {fileID: 630121495}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.data[23]
       value: 
       objectReference: {fileID: 630121495}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: isTimed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212416604768860288, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2024c4d4fc4ee3548844764d44894359,
+        type: 3}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: availableSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2024c4d4fc4ee3548844764d44894359,
+        type: 3}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: availableSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: cd97eb1f8fd174745a111055d0873f07,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
   m_IsPrefabParent: 0
@@ -2291,8 +2322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &297837523
 Prefab:
   m_ObjectHideFlags: 0
@@ -2589,8 +2620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1 &342510192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,7 +2912,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1 &377834989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3275,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!4 &447203861 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39,
@@ -3389,11 +3420,11 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 153372449}
+    m_TransformParent: {fileID: 1269579047}
     m_Modifications:
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 362.97
+      value: 362.92
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3421,19 +3452,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.99854046
+      value: 0.99854094
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.3177502
+      value: 1.5936553
       objectReference: {fileID: 0}
     - target: {fileID: 1207086610865184, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_Name
-      value: Moveable Wall (10)
+      value: Unmoveable Wall (10)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
@@ -3994,7 +4025,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1 &532439238 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1010298124033206, guid: 9703a2164f8a3e24385dd4fa55698995,
@@ -4053,8 +4084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 23204113}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1 &546673917
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,8 +4531,6 @@ Transform:
   - {fileID: 494015149}
   - {fileID: 1011868339}
   - {fileID: 1819472672}
-  - {fileID: 23204117}
-  - {fileID: 1614707544}
   m_Father: {fileID: 1790712105}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4875,7 +4904,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.5
+  delayTime: 0.25
 --- !u!1001 &644027344
 Prefab:
   m_ObjectHideFlags: 0
@@ -5702,7 +5731,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 780491698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1377490096}
@@ -5918,7 +5947,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1 &817853792
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,7 +6168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.x
@@ -6331,8 +6360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1 &863022968 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1579473309571200, guid: 117455b146843eb439cecb836685f1f1,
@@ -6352,7 +6381,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!4 &865514363 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4663811095681562, guid: ffb0ea0781d06924882bccdc1df4bb39,
@@ -6382,7 +6411,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1001 &915290826
 Prefab:
   m_ObjectHideFlags: 0
@@ -6829,12 +6858,12 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 586885078}
+    m_TransformParent: {fileID: 2104062091}
     m_Modifications:
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4741927483156566, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_LocalPosition.x
@@ -6866,7 +6895,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4741927483156566, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
@@ -6887,12 +6916,12 @@ Prefab:
         type: 2}
       propertyPath: controlling.Array.data[3]
       value: 
-      objectReference: {fileID: 1651127148}
+      objectReference: {fileID: 1212287907}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.data[4]
       value: 
-      objectReference: {fileID: 1212287907}
+      objectReference: {fileID: 0}
     - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
         type: 2}
       propertyPath: controlling.Array.data[5]
@@ -6925,8 +6954,31 @@ Prefab:
       objectReference: {fileID: 1790598794}
     - target: {fileID: 1010298124033206, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
       propertyPath: m_Name
-      value: Timer Oscillator Button (5)
+      value: Untimed Oscillator Button
       objectReference: {fileID: 0}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: isTimed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212416604768860288, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2024c4d4fc4ee3548844764d44894359,
+        type: 3}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: availableSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2024c4d4fc4ee3548844764d44894359,
+        type: 3}
+    - target: {fileID: 114275706771132156, guid: 9703a2164f8a3e24385dd4fa55698995,
+        type: 2}
+      propertyPath: availableSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: cd97eb1f8fd174745a111055d0873f07,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9703a2164f8a3e24385dd4fa55698995, type: 2}
   m_IsPrefabParent: 0
@@ -7066,8 +7118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 1
-  delayTime: 0.25
+  isDelayed: 0
+  delayTime: 0
 --- !u!1001 &1007610549
 Prefab:
   m_ObjectHideFlags: 0
@@ -7813,7 +7865,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!4 &1127289234 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4295962165713494, guid: 87328f9ed6eb8354fbd44d15571f5dbb,
@@ -8432,7 +8484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.x
@@ -9149,6 +9201,8 @@ Transform:
   - {fileID: 319426678}
   - {fileID: 1376461115}
   - {fileID: 847563906}
+  - {fileID: 1651127151}
+  - {fileID: 1662959644}
   m_Father: {fileID: 1635018123}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9892,8 +9946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &1420846276
 Prefab:
   m_ObjectHideFlags: 0
@@ -9955,6 +10009,22 @@ Prefab:
         type: 2}
       propertyPath: m_GravityScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989196959516772, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387581345383704, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989196959516772, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387581345383704, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
@@ -10568,8 +10638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &1533827725
 Prefab:
   m_ObjectHideFlags: 0
@@ -10778,56 +10848,16 @@ Transform:
   m_PrefabParentObject: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550,
     type: 2}
   m_PrefabInternal: {fileID: 2112632504}
---- !u!1 &1651127148 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1207086610865184, guid: 553e5ee7663f90743a999deaeb701bd7,
-    type: 2}
-  m_PrefabInternal: {fileID: 2024577698}
---- !u!114 &1651127149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1651127148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTriggers:
-  - {fileID: 23204113}
-  isDelayed: 0
-  delayTime: 0
 --- !u!4 &1651127151 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7,
     type: 2}
   m_PrefabInternal: {fileID: 2024577698}
---- !u!1 &1662959643 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1207086610865184, guid: 553e5ee7663f90743a999deaeb701bd7,
-    type: 2}
-  m_PrefabInternal: {fileID: 479169947}
 --- !u!4 &1662959644 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7,
     type: 2}
   m_PrefabInternal: {fileID: 479169947}
---- !u!114 &1662959645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1662959643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ad2d3e21509e0449d3d68203baef6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myTriggers:
-  - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
 --- !u!4 &1672790284 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4600642239012884, guid: 8ac5b7442162a8b4e9296ddd58a02218,
@@ -11876,8 +11906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &1872569064
 Prefab:
   m_ObjectHideFlags: 0
@@ -12034,7 +12064,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1001 &1888928726
 Prefab:
   m_ObjectHideFlags: 0
@@ -12290,6 +12320,16 @@ Prefab:
       propertyPath: myTriggers.Array.data[0]
       value: 
       objectReference: {fileID: 23204113}
+    - target: {fileID: 114426184874273174, guid: de6b621e2ff40b845be553cd701b25f5,
+        type: 2}
+      propertyPath: isDelayed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114426184874273174, guid: de6b621e2ff40b845be553cd701b25f5,
+        type: 2}
+      propertyPath: delayTime
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de6b621e2ff40b845be553cd701b25f5, type: 2}
   m_IsPrefabParent: 0
@@ -12528,7 +12568,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1001 &1986396293
 Prefab:
   m_ObjectHideFlags: 0
@@ -12763,7 +12803,7 @@ MonoBehaviour:
   myTriggers:
   - {fileID: 1614707543}
   isDelayed: 1
-  delayTime: 0.25
+  delayTime: 0.75
 --- !u!1 &2024483703 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1127177295846110, guid: 117455b146843eb439cecb836685f1f1,
@@ -12782,18 +12822,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTriggers:
   - {fileID: 1614707543}
-  isDelayed: 0
-  delayTime: 0
+  isDelayed: 1
+  delayTime: 0.25
 --- !u!1001 &2024577698
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 153372449}
+    m_TransformParent: {fileID: 1269579047}
     m_Modifications:
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 168.8
+      value: 168.80002
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12821,19 +12861,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.99854046
+      value: 0.99854094
       objectReference: {fileID: 0}
     - target: {fileID: 4135346394558662, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.3238821
+      value: 1.3238827
       objectReference: {fileID: 0}
     - target: {fileID: 1207086610865184, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
       propertyPath: m_Name
-      value: Moveable Wall (9)
+      value: Unmoveable Wall (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 553e5ee7663f90743a999deaeb701bd7, type: 2}
@@ -13342,7 +13382,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 23204117}
+  - {fileID: 1614707544}
   m_Father: {fileID: 1790712105}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
