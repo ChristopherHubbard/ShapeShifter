@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PushButtonController : MonoBehaviour
 {
-    private const float duration = 5;
+    private const float defaultDuration = 5;
 
     public GameObject[] controlling;
     public Sprite[] availableSprites;
@@ -17,6 +17,8 @@ public class PushButtonController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool oscillating;
 
+    public float Duration { get; set; }
+
     public bool Triggered { get; set; }
 
 	// Use this for initialization
@@ -25,6 +27,7 @@ public class PushButtonController : MonoBehaviour
         SetWallControllers();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Duration = defaultDuration;
         Triggered = false;
         oscillating = false;
 	}
@@ -64,7 +67,7 @@ public class PushButtonController : MonoBehaviour
 
     private IEnumerator ResetButtonTimed()
     {
-        yield return new WaitForSecondsRealtime(duration);
+        yield return new WaitForSecondsRealtime(Duration);
 
         EndCoroutines();
         spriteRenderer.sprite = availableSprites[0];
@@ -101,7 +104,6 @@ public class PushButtonController : MonoBehaviour
             {
                 wall.MyButtons[this] = value;
             }
-            //wall.MyButtons[this] = value;
         }
     }
 

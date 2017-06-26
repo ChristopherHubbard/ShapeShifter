@@ -7618,6 +7618,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 82215054207995338, guid: 1d3a1b6b6e68db04a981deb777a80017,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c49cef13d29a00f4bb4bc8a5a291d469, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d3a1b6b6e68db04a981deb777a80017, type: 2}
   m_IsPrefabParent: 0
