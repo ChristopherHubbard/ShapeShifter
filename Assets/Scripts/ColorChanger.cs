@@ -7,7 +7,7 @@ public class ColorChanger : MonoBehaviour
     private Material material;
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
     {
         material = GetComponent<SpriteRenderer>().material;
 	}

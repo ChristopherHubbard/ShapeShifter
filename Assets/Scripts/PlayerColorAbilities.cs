@@ -11,7 +11,7 @@ public class PlayerColorAbilities : MonoBehaviour
 
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
     {
         myMaterial = GameObject.Find("Player").GetComponent<SpriteRenderer>().material;
 
