@@ -9,16 +9,16 @@ public class ColorChanger : MonoBehaviour
 	// Use this for initialization
 	private void Start ()
     {
+        //Get the material of this Color Changer
         material = GetComponent<SpriteRenderer>().material;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject collider = collision.gameObject;
-
-        if(collider.tag == "Player")
+        //If the Color Changer is colliding with the Player Gameobject -- set the Player's material to the same as the Color Changer and deactivate the Color Changer
+        if(collision.tag == "Player")
         {
-            collider.GetComponent<SpriteRenderer>().material = material;
+            collision.GetComponent<SpriteRenderer>().material = material;
             gameObject.SetActive(false);
         }
     }

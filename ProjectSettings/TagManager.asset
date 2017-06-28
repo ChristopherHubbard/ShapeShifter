@@ -16,6 +16,8 @@ TagManager:
   - Floor
   - Background
   - PlayerComponent
+  - Wave
+  - WaterBasin
   layers:
   - Default
   - TransparentFX
