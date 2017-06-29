@@ -6,7 +6,6 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     private List<GameObject> backgrounds;
-
     public List<GameObject> Backgrounds
     {
         get
@@ -24,17 +23,17 @@ public class CheckpointController : MonoBehaviour
         }
     }
 
-    private bool Triggered { get; set; }
+    public bool Triggered { get; set; }
 
     private void Start()
     {
         Triggered = false;
 
-         backgrounds = new List<GameObject>()
-         {
-            GameObject.Find("Background"),
-            GameObject.Find("Background2")
-         };
+        backgrounds = new List<GameObject>()
+        {
+           GameObject.Find("Background"),
+           GameObject.Find("Background2")
+        };
 
         if (NullCheck())
         {

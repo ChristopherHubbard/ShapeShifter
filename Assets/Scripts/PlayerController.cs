@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(ray.collider.name);
 
                 //If the ray collided with something and it wasn't the Player -- not jumping
-                if (ray.collider != null && ray.collider.tag != "Player" && ray.collider.tag != "Respawn" && ray.collider.tag != "Background" && ray.collider.tag != "MainCamera")
+                if (ray.collider != null && ray.collider.tag != "Player" && ray.collider.tag != "Respawn" && ray.collider.tag != "Background" && ray.collider.tag != "MainCamera" && ray.collider.tag != "Pickup")
                 {
                     return false;
                 }

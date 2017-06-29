@@ -8524,7 +8524,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 343.57
+      value: 333.09
       objectReference: {fileID: 0}
     - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8561,6 +8561,10 @@ Prefab:
     - target: {fileID: 1443171150176264, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
       propertyPath: m_Name
       value: Large Wall Vertical (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5249981
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
@@ -15202,6 +15206,7 @@ Transform:
   - {fileID: 1913664756}
   - {fileID: 2005019390}
   - {fileID: 704442918}
+  - {fileID: 1947213326}
   m_Father: {fileID: 1242098801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21731,6 +21736,65 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+--- !u!1001 &1947213325
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1288755388}
+    m_Modifications:
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 330.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -52.779
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.33093655
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443171150176264, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_Name
+      value: Large Wall Vertical (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.42499772
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fbbac08597cdaf346ae27ed2e5781550, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1947213326 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4063444991703102, guid: fbbac08597cdaf346ae27ed2e5781550,
+    type: 2}
+  m_PrefabInternal: {fileID: 1947213325}
 --- !u!1 &1953167507 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1166563351435886, guid: 117455b146843eb439cecb836685f1f1,
