@@ -7,16 +7,15 @@ public class RespawnController : MonoBehaviour
 {
     private const double worldBoundary = 250;
     private PlayerController myPlayer;
-    //private PlayerColorAbilities myAbility;
     private GameObject[] myCheckpoints;
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
-        //myAbility = myPlayer.GetComponent<PlayerColorAbilities>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
 
+        
     }
 	
 	// Update is called once per frame
@@ -24,13 +23,18 @@ public class RespawnController : MonoBehaviour
     {
 	    if(IsOutsideBounds())
         {
-            Debug.Log("Player Died!!");
-            myPlayer.RigidB.velocity = new Vector2(0, 0);
-            ResetBackgrounds();
-
-            myPlayer.transform.position = new Vector3(myPlayer.CurrentCheckpoint.transform.position.x, myPlayer.CurrentCheckpoint.transform.position.y, 0);
+            PlayerDied();
         }
 	}
+
+    public void PlayerDied()
+    {
+        Debug.Log("Player Died!!");
+        myPlayer.RigidB.velocity = new Vector2(0, 0);
+        ResetBackgrounds();
+
+        myPlayer.transform.position = new Vector3(myPlayer.CurrentCheckpoint.transform.position.x, myPlayer.CurrentCheckpoint.transform.position.y, 0);
+    }
 
     private void ResetBackgrounds()
     {

@@ -7,15 +7,19 @@ public class PlayerColorAbilities : MonoBehaviour
     private Material myMaterial;
 
     public bool CanLiveWater { get; set; }
-    public bool CanLiveFire { get; set; }
+    public bool CanLiveLava { get; set; }
 
-
-	// Use this for initialization
-	private void Start ()
+    // Use this for initialization
+    private void Start ()
     {
         myMaterial = GameObject.Find("Player").GetComponent<SpriteRenderer>().material;
 
-        if(myMaterial.name != "Blue")
+        SetAbilities();
+	}
+
+    private void SetAbilities()
+    {
+        if (myMaterial.name != "Blue" + GetAddInstance())
         {
             CanLiveWater = false;
         }
@@ -24,15 +28,19 @@ public class PlayerColorAbilities : MonoBehaviour
             CanLiveWater = true;
         }
 
-        if(myMaterial.name != "Red")
+        if (myMaterial.name != "Red" + GetAddInstance())
         {
-            CanLiveFire = false;
+            CanLiveLava = false;
         }
         else
         {
-            CanLiveFire = true;
+            CanLiveLava = true;
         }
+    }
 
-	}
+    public static string GetAddInstance()
+    {
+        return " (Instance)";
+    }
 
 }

@@ -3,35 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorAttribute : MonoBehaviour
+public class ColorAttributeChanger : MonoBehaviour
 {
     private GameObject myPlayer;
     private PlayerColorAbilities myColorAbility;
     private SpriteRenderer mySprite;
-    private Material myMaterial;
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player");
         myColorAbility = myPlayer.GetComponent<PlayerColorAbilities>();
-        mySprite = GameObject.Find("Player").GetComponent<SpriteRenderer>();
-        myMaterial = mySprite.material;
-		
+        mySprite = myPlayer.GetComponent<SpriteRenderer>();
 	}
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player" && myMaterial != mySprite.material)
+        if(collision.tag == "Player")
         {
-            myMaterial = mySprite.material;
             ChangeColorAttributes();
         }
     }
 
     private void ChangeColorAttributes()
     {
-        if(myMaterial.name == "Blue")
+        if(mySprite.material.name == "Blue" + PlayerColorAbilities.GetAddInstance() + PlayerColorAbilities.GetAddInstance())
         {
             myColorAbility.CanLiveWater = true;
         }
@@ -40,13 +36,13 @@ public class ColorAttribute : MonoBehaviour
             myColorAbility.CanLiveWater = false;
         }
 
-        if(myMaterial.name == "Red")
+        if(mySprite.material.name == "Red" + PlayerColorAbilities.GetAddInstance() + PlayerColorAbilities.GetAddInstance())
         {
-            myColorAbility.CanLiveFire = true;
+            myColorAbility.CanLiveLava = true;
         }
         else
         {
-            myColorAbility.CanLiveFire = false;
+            myColorAbility.CanLiveLava = false;
         }
     }
 }

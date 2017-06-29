@@ -19,7 +19,10 @@ public class ColorChanger : MonoBehaviour
         if(collision.tag == "Player")
         {
             collision.GetComponent<SpriteRenderer>().material = material;
-            gameObject.SetActive(false);
+            //GetComponent<SpriteRenderer>().enabled = false;
+            // ^^^ would need method to enable on respawn ^^^
+
+            //gameObject.SetActive(false);
         }
     }
 }
