@@ -18,6 +18,7 @@ TagManager:
   - PlayerComponent
   - Wave
   - WaterBasin
+  - Pickup
   layers:
   - Default
   - TransparentFX
