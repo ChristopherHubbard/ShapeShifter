@@ -8,14 +8,14 @@ public class RespawnController : MonoBehaviour
     private const double worldBoundary = 250;
     private PlayerController myPlayer;
     private GameObject[] myCheckpoints;
+    private AudioSource music;
 
 	// Use this for initialization
 	private void Start ()
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
-
-        
+        music = GameObject.Find("Canvas").GetComponent<PauseMenu>().Music;
     }
 	
 	// Update is called once per frame
@@ -33,6 +33,8 @@ public class RespawnController : MonoBehaviour
         myPlayer.RigidB.velocity = new Vector2(0, 0);
         ResetBackgrounds();
 
+        Time.timeScale = 1;
+        music.Play();
         myPlayer.transform.position = new Vector3(myPlayer.CurrentCheckpoint.transform.position.x, myPlayer.CurrentCheckpoint.transform.position.y, 0);
     }
 
