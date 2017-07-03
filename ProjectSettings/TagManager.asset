@@ -19,6 +19,7 @@ TagManager:
   - Wave
   - WaterBasin
   - Pickup
+  - Pause
   layers:
   - Default
   - TransparentFX

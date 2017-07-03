@@ -15,6 +15,11 @@ public class RespawnController : MonoBehaviour
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
+        Invoke("MusicInvoke", 0.1f);
+    }
+
+    private void MusicInvoke()
+    {
         music = GameObject.Find("Canvas").GetComponent<PauseMenu>().Music;
     }
 	
