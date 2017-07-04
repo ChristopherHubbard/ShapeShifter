@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114904060418575978}
   - component: {fileID: 114712841111737704}
   - component: {fileID: 82630796494388812}
+  - component: {fileID: 114999772024613508}
   m_Layer: 0
   m_Name: Red Color Power
   m_TagString: Pickup
@@ -173,6 +174,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de49983d937018e4386f51231b584a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114999772024613508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090884663002672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0237f44ba387ca644bff6a3afb1ac8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212633744247708984

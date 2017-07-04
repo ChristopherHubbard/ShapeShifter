@@ -61,6 +61,7 @@ public class PauseMenu : MonoBehaviour
     private void ShowMenu(bool value)
     {
         StopMusic(value);
+
         foreach(GameObject pause in pauseMenuObjects)
         {
             pause.SetActive(value);
@@ -71,12 +72,13 @@ public class PauseMenu : MonoBehaviour
     {
         if(value)
         {
-            music.Stop();
+            music.Pause();
         }
         else
         {
-            music.Play();
+            music.UnPause();
         }
+        
     }
 
     public void RestartLevel()
