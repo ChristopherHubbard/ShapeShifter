@@ -23,23 +23,20 @@ public class WaveCreator : MonoBehaviour
                 waveRenderers.Add(waterObject.GetComponent<SpriteRenderer>());
             }
         }
-        StartCoroutines();
+
+        StartCoroutine(CreateWave());
     }
 
-    private void StartCoroutines()
-    {
-        foreach(SpriteRenderer waveRenderer in waveRenderers)
-        {
-            StartCoroutine(DelayWave(waveRenderer));
-        }
-    }
-
-    private IEnumerator DelayWave(SpriteRenderer waveRenderer)
+    private IEnumerator CreateWave()
     {
         while(flowing)
         {
             yield return new WaitForSecondsRealtime(waveLength);
-            waveRenderer.flipX = !waveRenderer.flipX;
+
+            foreach (SpriteRenderer waveRenderer in waveRenderers)
+            {
+                waveRenderer.flipX = !waveRenderer.flipX;
+            }
         }
     }
 }
