@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIController : MonoBehaviour
+public class UIController: MonoBehaviour
 {
     public List<GameObject> UIObjects { get; set; }
     public AudioSource Music { get; set; }
