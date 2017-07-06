@@ -7,18 +7,21 @@ public class SoundOnTrigger : MonoBehaviour
 {
     public bool isEnter;
     public bool isExit;
+    public bool playOnceOnly;
 
     private AudioSource sound;
+    private bool triggered;
 
 	// Use this for initialization
 	private void Start ()
     {
         sound = GetComponent<AudioSource>();
+        triggered = false;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isEnter)
+        if (ConditionCheck(isEnter))
         {
             Play(collision);
         }
@@ -26,10 +29,15 @@ public class SoundOnTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isExit)
+        if (ConditionCheck(isExit))
         {
             Play(collision);
         }
+    }
+
+    private bool ConditionCheck(bool check)
+    {
+        return check && (!playOnceOnly || playOnceOnly && !triggered); 
     }
 
     private void Play(Collider2D collision)
@@ -37,6 +45,7 @@ public class SoundOnTrigger : MonoBehaviour
         if(collision.tag == "Player")
         {
             sound.Play();
+            triggered = true;
         }
     }
 }

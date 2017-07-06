@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class FlagAnimationController : MonoBehaviour
 {
-	// Use this for initialization
-	private void Start ()
-    {
-        //Get the flag's animation component and reduce its speed
-        Animator flagAnimator = GetComponent<Animator>();
-        flagAnimator.speed = 0.75f;
-	}
+    public RuntimeAnimatorController hitController;
 
+    private Animator animator;
+
+    // Use this for initialization
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.speed = 0.75f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            animator.runtimeAnimatorController = hitController;
+        }
+    }
 }

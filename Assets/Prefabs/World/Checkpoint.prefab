@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnter: 1
   isExit: 0
+  playOnceOnly: 1
 --- !u!114 &114662031563209490
 MonoBehaviour:
   m_ObjectHideFlags: 1

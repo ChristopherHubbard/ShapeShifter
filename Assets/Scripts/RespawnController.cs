@@ -15,16 +15,11 @@ public class RespawnController : MonoBehaviour
     {
         myPlayer = GameObject.Find("Player").GetComponent<PlayerController>();
         myCheckpoints = GameObject.FindGameObjectsWithTag("Respawn");
-        Invoke("MusicInvoke", 0.1f);
+        GetMusic();
     }
 
-    private void MusicInvoke()
-    {
-        music = GameObject.Find("Canvas").GetComponent<PauseMenu>().Music;
-    }
-	
-	// Update is called once per frame
-	private void Update ()
+    // Update is called once per frame
+    private void Update ()
     {
 	    if(IsOutsideBounds())
         {
@@ -32,14 +27,30 @@ public class RespawnController : MonoBehaviour
         }
 	}
 
+    private void GetMusic()
+    {
+        while (GameObject.Find("Canvas").GetComponent<PauseMenu>().MenuController.Music == null)
+        {
+            StartCoroutine(Wait());
+        }
+
+        music = GameObject.Find("Canvas").GetComponent<PauseMenu>().MenuController.Music;
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+    }
+
     public void PlayerDied()
     {
         Debug.Log("Player Died!!");
-        myPlayer.RigidB.velocity = new Vector2(0, 0);
         ResetBackgrounds();
 
         Time.timeScale = 1;
         music.Play();
+
+        myPlayer.RigidB.velocity = new Vector2(0, 0);
         myPlayer.transform.position = new Vector3(myPlayer.CurrentCheckpoint.transform.position.x, myPlayer.CurrentCheckpoint.transform.position.y, 0);
     }
 

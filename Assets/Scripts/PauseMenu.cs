@@ -2,37 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private List<GameObject> pauseMenuObjects = new List<GameObject>();
-    private AudioSource music;
-    public AudioSource Music
+    private UIController menuController;
+    public UIController MenuController
     {
         get
         {
-            return music;
+            return menuController;
         }
     }
 
-	// Use this for initialization
-	private void Start ()
+    private void Awake()
     {
-        List<AudioSource> audioSources = new List<AudioSource>();
+        menuController = new UIController(GameObject.FindGameObjectsWithTag("Pause"));
+        menuController.ChangeDisplay(false);
+    }
+
+    // Use this for initialization
+    private void Start ()
+    {
         Time.timeScale = 1;
-        pauseMenuObjects.AddRange(GameObject.FindGameObjectsWithTag("Pause"));
-
-        audioSources.AddRange(GameObject.Find("Player").GetComponents<AudioSource>());
-        foreach(AudioSource audio in audioSources)
-        {
-            if(audio.loop)
-            {
-                music = audio;
-            }
-        }
-
-        ShowMenu(false);
 	}
 	
 	// Update is called once per frame
@@ -46,43 +37,19 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseControl()
     {
+        bool display;
+
         if(Time.timeScale == 1)
         {
             Time.timeScale = 0;
-            ShowMenu(true);
+            display = true;
         }
         else
         {
             Time.timeScale = 1;
-            ShowMenu(false);
+            display = false;
         }
-    }
 
-    private void ShowMenu(bool value)
-    {
-        StopMusic(value);
-
-        foreach(GameObject pause in pauseMenuObjects)
-        {
-            pause.SetActive(value);
-        }
-    }
-
-    private void StopMusic(bool value)
-    {
-        if(value)
-        {
-            music.Pause();
-        }
-        else
-        {
-            music.UnPause();
-        }
-        
-    }
-
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        menuController.ChangeDisplay(display);
     }
 }
